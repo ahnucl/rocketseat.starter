@@ -1,0 +1,122 @@
+<html>
+    <head> <meta charset="UTF-8">
+        <title>Curso Javascript - RS Starter</title>
+    </head>
+    <body>
+        <script>
+            /**
+             *  Exercícios: Módulo 1
+             */
+            
+            // 1
+            var endereco = {
+                    rua: "Rua dos pinheiros",
+                    numero: 1293,
+                    bairro: "Centro",
+                    cidade: "São Paulo",
+                    uf: "SP"
+                };
+                
+            function fraseBuilder() {
+                var frase = [
+                    "O usuário mora em ",
+                    endereco.cidade,
+                    " / ",
+                    endereco.uf,
+                    ", no bairro ",
+                    endereco.bairro,
+                    ", na rua \"",
+                    endereco.rua,
+                    "\"com nº ",
+                    endereco.numero
+                    ];
+                return frase.join("");
+            }
+
+            // console.log(fraseBuilder());
+
+            function fraseBuilder2() {
+                return "O usuário mora em " +
+                        endereco.cidade +
+                        " / " +
+                        endereco.uf +
+                        ", no bairro " +
+                        endereco.bairro +
+                        ", na rua \"" +
+                        endereco.rua +
+                        "\"com nº " +
+                        endereco.numero
+                ;
+            }
+
+            // console.log(fraseBuilder2());
+
+            // 2
+            function pares(x, y) {
+                var maior = ( x > y ) ? x : y ;
+                var menor = ( x < y ) ? x : y ;
+                if( x == y ) maior = x; // se forem iguais ambos já são y 
+                for(var i = menor; i <= maior; i++) {
+                    if(i % 2 == 0) console.log(i);
+                }
+            }
+
+            // 3
+            var skills = ["Javascript", "ReactJS", "React Native"];
+            temHabilidade(skills);
+
+            function temHabilidade(skills) {
+                return skills.indexOf("Javascript") != -1 ? true : false;
+            }
+
+            // 4
+            function experiencia(anos) {
+                var experienciaString;
+                if( anos <= 1) {
+                    experienciaString = "Iniciante";
+                } else if( anos > 1 && anos <= 3) {
+                    experienciaString = "Intermediário";
+                } else if( anos > 3 && anos <= 6) {
+                    experienciaString = "Avançado";
+                } else {
+                    experienciaString = "Jedi Master"
+                }
+                return experienciaString;
+            }
+            
+            // 5
+            var usuarios = [
+                {
+                    nome: "Diego",
+                    habilidades: ["Javascript", "reactJS", "Redux"]
+                },
+                {  
+                    nome: "Gabriel",
+                    habilidades: ["VueJS", "Ruby on Rails", "Elixir" ]
+                }
+            ];
+            
+            function percorreArrayObjetos(){
+                var resposta;
+                console.log("usando for... of");
+                for(usuario of usuarios){
+                    resposta = "O " 
+                             + usuario.nome
+                             + " possui as habilidades: "
+                             + usuario.habilidades.join(", ");
+                    console.log(resposta);
+                }
+            }
+
+            function percorreArrayObjetos2() {
+                console.log("usando Array.prototype.forEach(callback(element))")
+                usuarios.forEach(
+                    function (element) {
+                        console.log("O " + element.nome + " possui as habilidades: " + element.habilidades.join(", "))
+                    }
+                );
+            }
+
+        </script>
+    </body>
+</html>
