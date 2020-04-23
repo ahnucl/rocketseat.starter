@@ -24,7 +24,7 @@ setTimeout(func, delayInMilis)
 - O método "for... in" funciona para objetos; 
 - para Arrays usar "Array.prototype.forEach()" ou "for... of"
 - "Array.prototype.forEach()" lembra um paradigma mais funcional, declarativo
-- "for... of" é um loop normal imperativo
+- "for... of" é um loop normal, imperativo
 
 ### Misc
 
@@ -32,3 +32,10 @@ Faz um "publish" no branch: (necessário antes de dar push)
 ``` 
 git push -u origin master
 ```
+
+## Manipulação da DOM
+
+
+## App de TODOS
+
+## JS assíncrono
