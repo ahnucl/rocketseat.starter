@@ -80,4 +80,24 @@ document.querySelector("body div.app input#nome2"); // Caminho
 
 ## App de TODOS
 
+### Iniciando a aplicação
+
+- referenciar elementos na DOM
+
+- complexidade do problema -> como é só texto, um array resolve; a estrutura poderia ser mais complexa.
+
+- innerHTML manipula o conteúdo (HTML) do elemento
+
+- Armazenamento local (local storage) - não relacional (chave-valor)
+
+> Operaçções que modificam a lista -> salvar e deletar todos
+> Storage acessado pela variável global "localStorage"
+> métodos: localStorage.setItem('list_todos', todos);
+> Storage não salva arrays, apenas string -> transferir para JSON (Extrutura de um Objeto do Javascript mas é uma String)
+> JSON.stringify
+> O conteúdo do storage pode ver visto na aba "application" no menu de dev do navegador
+
+- Valor padrão para variável: "|| valor" - no caso do array: var array = JSON... || [] (valor padrão é um array vazio)
+> Esse é um "problema" do JS - a tipagem fraca!
+  
 ## JS assíncrono
