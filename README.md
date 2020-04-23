@@ -5,9 +5,9 @@
 ### INTERVALOS E TIMEOUUT
 
 #### Intervalo
-    "Intervalo" é uma função períodica, que será executada a cada "intervalo"
+- "Intervalo" é uma função períodica, que será executada a cada "intervalo"
 
-    Para **referenciar a função**, passar o escopo dela para outro local, deve-se usar o nome da função sem o parênteses. Se passar a função com o parênteses ela irá simplesmente executar e a referência não será passada.
+- Para **referenciar a função**, passar o escopo dela para outro local, deve-se usar o nome da função sem o parênteses. Se passar a função com o parênteses ela irá simplesmente executar e a referência não será passada.
 
 #### Timeout
     É um atraso para executar a função.
