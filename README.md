@@ -80,8 +80,6 @@ document.querySelector("body div.app input#nome2"); // Caminho
 
 ## App de TODOS
 
-### Iniciando a aplicação
-
 - referenciar elementos na DOM
 
 - complexidade do problema -> como é só texto, um array resolve; a estrutura poderia ser mais complexa.
@@ -101,3 +99,68 @@ document.querySelector("body div.app input#nome2"); // Caminho
 > Esse é um "problema" do JS - a tipagem fraca!
   
 ## JS assíncrono
+
+### Requisição AJAX
+
+- AJAX -> requisição assíncrona feita a algum backend
+
+- No Javascript não há necessidade de recarregar a página após requisitar algo ao servidor
+
+> classe XMLHttpRequest() -> recuperar informações com o AJAX
+
+
+```(Javascript)
+var xhr = new XMLHttpRequest();
+
+xhr.open('GET', 'https://api.github.com/users/ahnucl');
+xhr.send(null);
+
+// Requisição asíncrona, não acontece no mesmo fluxo do script
+xhr.onreadystatechange = function() {
+    if(xhr.readyState === 4) { // resposta voltou
+        console.log(JSON.parse(xhr.responseText));
+    }
+}
+```
+
+### Promisses
+
+- Códigos que não influenciam a linha do tempo de execução do código - devolvem algo apenas após um intervalo de tempo
+
+- Promisse é uma classe do JS; resolve e reject são funções, resolve é retornado em caso de sucessoe reject em caso contrário
+```
+var minhaPromise = function() {
+    return new Promise( function(resolve, reject) {
+        
+    });
+}
+```
+
+- Esqueleto de uma Promisse:
+```
+var minhaPromise = function() {
+    return new Promise( function(resolve, reject) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'https://api.git4hub.com/users/ahnucl');
+        xhr.send(null);
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) { // resposta voltou
+                if(xhr.status === 200) {
+                    resolve(JSON.parse(xhr.responseText));
+                } else {
+                    reject('Erro na requisição');
+                }
+            }
+        }
+    });
+}
+
+minhaPromise()
+    .then(function(response) {
+        console.log(response);
+    })
+    .catch(function(error) {
+        console.warn(error);
+    });
+``` 
