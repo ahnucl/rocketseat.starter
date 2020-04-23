@@ -26,3 +26,9 @@
 - "Array.prototype.forEach()" lembra um paradigma mais funcional, declarativo
 - "for... of" é um loop normal imperativo
 
+### Misc
+
+Faz um "publish" no branch: (necessário antes de dar push)
+``` 
+git push -u origin master
+```
