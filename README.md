@@ -164,3 +164,27 @@ minhaPromise()
         console.warn(error);
     });
 ``` 
+
+- Promisse: quando chamar a função resolve (1º argumento) cai no "then", quando chamar a função reject (2º argumento) cai no "catch"; os argumentos para as funções no "then" e no "catch" são passados pelas funções da promisse.
+
+### Utilizando Axios
+
+- Usar Axios no lugar da XMLHttpRequest()
+> https://github.com/axios/axios
+
+- Importar a lib antes do script para ele já estar disponível
+
+- Axios retorna mais coisas, inclusive a XMLHttpRequest, no mesmo objeto. É possível consultar o readyState, status, etc (campo request, é um XMLHttpRequest)
+
+- Ou seja, o Axios é um Wrapper (encapsulamento) em volta da XMLHttpRequest
+
+- Código equivalente ao do vídeo passado:
+```
+axios.get('https://api.github.com/users/ahnucl')
+    .then(function(response) {
+        console.log(response);
+    })
+    .catch(function(error) {
+        console.warn(error);
+    });
+```
