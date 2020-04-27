@@ -209,3 +209,28 @@ axios.get('https://api.github.com/users/ahnucl')
 - Async/Await é do ES8
 
 ## Configurando o Babel
+
+- Instalando o babel e adicionando ele como dependência do projeto pelo yarn:
+```
+yarn add @babel/cli //instalando a cli do babel
+```
+- Outra dependência: "yarn add @babel/preset-env"
+
+- "yarn.lock" -> tipo de cache do yarn
+
+- node_nodules mantém todas as dependências do projeto
+
+- após a inicialização de alguma dependência, criar o **.gitignore** para evitar que a pasta node_modules suba pro controle de versão
+
+- arquivo de **configuração do babel** -> *".babelrc"*
+
+- configuração básica do babel:
+```
+{
+    "presets":["@babel/preset-env"]
+}
+```
+> O preset-env é um preset do babel que entende qual ambiente estamos trabalhando (babel pode ser usado em browser, node, react native, etc)
+
+- passar "-w" no comando do babel deixa o babel monitorando o serviço pra automaticamente gerar o novo bundle a cada alteração
+
