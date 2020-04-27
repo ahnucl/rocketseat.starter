@@ -203,5 +203,5 @@ axios.get('https://api.github.com/users/ahnucl')
 
 - Webpack: servidor de desenvolvimento para javacript
 
-[/misc/ES6.png]
+![](/misc/ES6.png)
 
