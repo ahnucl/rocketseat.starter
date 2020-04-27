@@ -188,3 +188,20 @@ axios.get('https://api.github.com/users/ahnucl')
         console.warn(error);
     });
 ```
+
+# Curso JavaScript ES6
+
+## Introdução
+
+- ES = EcmaScript
+
+- 6 -> versão (ano + 1, 2015 no caso)
+
+- JS antes do ES6 é bem diferente em questão de novas funcionalidades
+
+- Babel: navegadores lentos para entender novas funcionalidades do ES, o Babel transpila as funcionalidades para códigos que todos os navegadores entendem (ES6+ não tem "Novas" funcionalidades, mas funcionalidades mais abstraídas, modificando a forma de escrever JS)
+
+- Webpack: servidor de desenvolvimento para javacript
+
+[/misc/ES6.png]
+
