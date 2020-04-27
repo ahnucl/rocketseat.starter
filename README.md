@@ -203,5 +203,9 @@ axios.get('https://api.github.com/users/ahnucl')
 
 - Webpack: servidor de desenvolvimento para javacript
 
+- Principais diferenças ES6+:
 ![](/misc/ES6.png)
 
+- Async/Await é do ES8
+
+## Configurando o Babel
