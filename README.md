@@ -234,3 +234,39 @@ yarn add @babel/cli //instalando a cli do babel
 
 - passar "-w" no comando do babel deixa o babel monitorando o serviço pra automaticamente gerar o novo bundle a cada alteração
 
+
+## Classes
+
+- Construtores: Propriedades podem ser definidas nos contrutores - o JS permite isso, não é necessário definir uma variável antes de chamá-la no construtor
+```
+class TodoList extends List {
+    constructor() {
+        super();
+
+        this.usuario = 'Eu';
+    }
+```
+
+- Ao adicionar um método de uma clase a um botão, é necessário uma função wrapper!
+```
+const MinhaLista = new TodoList();
+
+document.getElementById('novotodo').onclick = function() {
+    MinhaLista.add('asdasd'); 
+}
+```
+
+- Métodos estáticos são chamados independente do restante da classe; úteis quando o método deve apenas receber um valor e retonar outro, por exemplo
+
+
+## Const e Let
+
+- constantes (const); Não é possível reatribuir o valor, mas é possível **mutar** : mudar propriedades dentro de um objeto ou array
+```
+const usuario = { nome: "leo" };
+
+usuario.nome = 'Leonardo';
+``` 
+- variáveis de escopo (let) - consultar freeCodeCamp
+
+## 
