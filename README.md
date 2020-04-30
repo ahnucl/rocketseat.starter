@@ -269,4 +269,26 @@ usuario.nome = 'Leonardo';
 ``` 
 - variáveis de escopo (let) - consultar freeCodeCamp
 
-## 
+## Operações em Array
+
+- map, filter e reduce recebem um função como parâmetro
+
+- map
+
+- reduce
+
+- filter
+
+## Arrow Functions
+```
+const newArr = arr.map(function(item) {
+    return item * 2;
+});
+// Vira:
+const new Arr = arr.map(item => item * 2);
+```
+
+- Para retornar objetos na sintaxe reduzida é necessário envolvê-lo em parênteses:
+```
+const retornaObjeto = () => ({ nome: "Leonardo" });
+```
