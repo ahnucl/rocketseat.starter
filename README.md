@@ -277,7 +277,7 @@ usuario.nome = 'Leonardo';
 
 - reduce
 
-- filter
+- filter - função deve retornar um boolean para fazer a filtragem
 
 ## Arrow Functions
 ```
@@ -290,5 +290,112 @@ const new Arr = arr.map(item => item * 2);
 
 - Para retornar objetos na sintaxe reduzida é necessário envolvê-lo em parênteses:
 ```
-const retornaObjeto = () => ({ nome: "Leonardo" });
+const retornaObjeto = w() => ({ nome: "Leonardo" });
+```
+
+## Valores padrão
+
+- NaN: not a number
+
+- usar atribuição na assinatura da função:
+```
+function soma(a = 0, b = 0) {
+    return a + b;
+}
+// arrow function
+const soma = (a = 0, b = 0) => a + b;
+```
+
+## Desestruturação
+
+- Dado o objeto:
+```
+const usuario = {
+    nome: "Leonardo",
+    idade: 30,
+    endereco: {
+        cidade: "Brasília",
+        estado: "DF",
+    },
+};
+```
+
+- É possível capturar valores dele em variáveis em apenas uma linha segundo a sintaxe:
+```
+const {nome, idade, endereco: { cidade } } = usuario;
+```
+
+- Usando diretamente em uma função:
+```
+function mostraNome( { nome, idade } ) {
+    console.log(nome, idade);
+}
+mostraNome(usuario);
+```
+
+## Operadores rest/spread
+
+- Utilizam os "..."
+
+- Necessário instalar um novo pacote pois esses operadores ainda não foram acoplados à versão principal do Babel - instalar plugins:
+```
+yarn add @babel/plugin-proposal-object-rest-spread
+```
+
+- Aplicável em objetos e em arrays e em parâmetros de funções (rest)
+
+- Um objeto **não pode** ter duas propriedades iguais
+
+- *REST* - pegar o resto das propriedades / *SPREAD* - propaga um objeto/array para outra estrutura de dados
+```
+// REST
+const usuario = {
+    nome: "Leonardo",
+    idade: 30,
+    endereco: {
+        cidade: "Brasília",
+        estado: "DF",
+    },
+    empresa: "TODAS",
+};
+
+const { nome, ...resto} = usuario; // nome contém apenas usuario.nome, e resto contém as demais propriedades de usuario
+
+const arr = [1,2,3,4,6];
+const [a,b,...c] = arr; // a = 1, b = 2, c = [3,4,6] (resto)
+
+function soma(...params) {
+    return params.reduce((total,next) => total + next);
+}
+// SPREAD
+const arr1 = [1,2,3];
+const arr2 = [5,6,7];
+const arr3 = [ ...arr1, ...arr2 ]; // [1,2,3,5,6,7]
+
+const usuario1 = {
+    nome:"Diego",
+    idade:23,
+    empresa:"Rocketseat",
+}
+
+const usuario2 = { ...usuario1, nome: "Leonardo", }; // primeiro "copia" o objeto e depois sobreescreve o que for especificado
+```
+
+## Template Literals
+
+- forma de incluir variáveis dentro de Strings no JS a partir do ES6
+
+- Usar sinal de crase (` `) no lugar de aspas (lembrando de simples e duplas no JS fazem a mesma coisa) e especificar o nome das variáveis, dentro da string, com "${ }"
+
+## Object Short Syntax
+
+- Usar mesmos nomes de variáveis e propriedades de objetos -> não é necessário fazer "nome: nome", por exemplo:
+```
+const nome = "jasdas";
+
+const usuario = {
+    nome, // não precisa ser "nome: nome",
+    sobrenome: "asdasdas",
+
+}
 ```
