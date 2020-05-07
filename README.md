@@ -191,7 +191,9 @@ axios.get('https://api.github.com/users/ahnucl')
 
 # Curso JavaScript ES6
 
-## Introdução
+## Conceitos
+
+### Introdução
 
 - ES = EcmaScript
 
@@ -208,7 +210,7 @@ axios.get('https://api.github.com/users/ahnucl')
 
 - Async/Await é do ES8
 
-## Configurando o Babel
+### Configurando o Babel
 
 - Instalando o babel e adicionando ele como dependência do projeto pelo yarn:
 ```
@@ -235,7 +237,7 @@ yarn add @babel/cli //instalando a cli do babel
 - passar "-w" no comando do babel deixa o babel monitorando o serviço pra automaticamente gerar o novo bundle a cada alteração
 
 
-## Classes
+### Classes
 
 - Construtores: Propriedades podem ser definidas nos contrutores - o JS permite isso, não é necessário definir uma variável antes de chamá-la no construtor
 ```
@@ -259,7 +261,7 @@ document.getElementById('novotodo').onclick = function() {
 - Métodos estáticos são chamados independente do restante da classe; úteis quando o método deve apenas receber um valor e retonar outro, por exemplo
 
 
-## Const e Let
+### Const e Let
 
 - constantes (const); Não é possível reatribuir o valor, mas é possível **mutar** : mudar propriedades dentro de um objeto ou array
 ```
@@ -269,7 +271,7 @@ usuario.nome = 'Leonardo';
 ``` 
 - variáveis de escopo (let) - consultar freeCodeCamp
 
-## Operações em Array
+### Operações em Array
 
 - map, filter e reduce recebem um função como parâmetro
 
@@ -279,7 +281,7 @@ usuario.nome = 'Leonardo';
 
 - filter - função deve retornar um boolean para fazer a filtragem
 
-## Arrow Functions
+### Arrow Functions
 ```
 const newArr = arr.map(function(item) {
     return item * 2;
@@ -293,7 +295,7 @@ const new Arr = arr.map(item => item * 2);
 const retornaObjeto = w() => ({ nome: "Leonardo" });
 ```
 
-## Valores padrão
+### Valores padrão
 
 - NaN: not a number
 
@@ -306,7 +308,7 @@ function soma(a = 0, b = 0) {
 const soma = (a = 0, b = 0) => a + b;
 ```
 
-## Desestruturação
+### Desestruturação
 
 - Dado o objeto:
 ```
@@ -333,7 +335,7 @@ function mostraNome( { nome, idade } ) {
 mostraNome(usuario);
 ```
 
-## Operadores rest/spread
+### Operadores rest/spread
 
 - Utilizam os "..."
 
@@ -381,13 +383,13 @@ const usuario1 = {
 const usuario2 = { ...usuario1, nome: "Leonardo", }; // primeiro "copia" o objeto e depois sobreescreve o que for especificado
 ```
 
-## Template Literals
+### Template Literals
 
 - forma de incluir variáveis dentro de Strings no JS a partir do ES6
 
 - Usar sinal de crase (` `) no lugar de aspas (lembrando de simples e duplas no JS fazem a mesma coisa) e especificar o nome das variáveis, dentro da string, com "${ }"
 
-## Object Short Syntax
+### Object Short Syntax
 
 - Usar mesmos nomes de variáveis e propriedades de objetos -> não é necessário fazer "nome: nome", por exemplo:
 ```
@@ -399,3 +401,45 @@ const usuario = {
 
 }
 ```
+
+## Webpack Server
+
+### Configurando Webpack
+
+- Webpack - serviço que permite trabalhar com vários arquivos JS e outros tipos de arquivo também dentreo da mesma aplicação - todo esse código ainda é convertido em um único bundle.js -> **imports e exports**
+
+- Dependências de desenvolvimento -> no package.json sob a chave "devDependencies"; usar -D no yarn add
+
+- Arquivo de configuração do webpack -> webpack.config.js 
+> Sintaxe um pouco diferente: module.exports (json); chaves obrigatórias: entry  (arquivo principal que contém o código ES6+); output; module.rules -> regras (o babel é uma)
+
+### Import/export
+
+- quando se usa a palavra reservada "export" em uma função, variável, ou classe, etc, é possível importar essa informação com a keyword "import"
+
+- a procura no import por padrão considera o arquivo como ".js"
+
+- cada arquivo pode ter um export default - frameworks frontend colocam uma classe ou função por arquivo, e ele é exportado por default
+> pra importar defaults não precisa usar as { } e é possível usar qualquer nome
+
+- para mudar o nome de um objeto no import comum deve-se usar o "as": { algum iport as a }
+
+- caso um arquivo tenha um export default e outros normais:
+```
+import default, { normal1, normal2, ... } from './arquivo';
+```
+
+- importar tudo num único objeto:
+```
+import * as funcoes from './funcoes';
+```
+
+### Webpack dev server
+
+- Estrutura de pastas: src -> arquivos js da aplicação
+> dentro do diretório public ficam os arquivos que o webpack não precisa para trabalhar; os arquivos que o webpack precisa monitorar ficam no diretório src 
+
+- o webpack-dev-server serve para trabalhar com o projeto offline, ele embute o bundle.js no index
+
+- O dev-server monitora as alterações e dá um refresh automaticamente na página
+
