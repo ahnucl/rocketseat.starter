@@ -443,3 +443,51 @@ import * as funcoes from './funcoes';
 
 - O dev-server monitora as alterações e dá um refresh automaticamente na página
 
+## Async/Await
+
+- sintaxe reduzida para Promises
+
+- É necessário instalar uma biblioteca para trabalhar com async/await no Babel; adicionar outro plugin:
+```
+yarn add @babel/plugin-transform-async-to-generator -D
+yarn add @babel/polyfill -D
+```
+>O polyfill deve ser adicionado no webpack.config.js e o plugin do babel no .babelrc
+
+- await -> Chamada de funções que retornam Promises; usada dentro de uma função async;
+>Tendo o await modificando uma função que retorna uma promisse garante que próxima linha só será executada quando a função terminar de executar;
+
+- async -> transforma a função declarada numa Promise
+>Não é possível utilizar o await a frente de uma Promise se não estiver dentro de uma função com async
+
+### Configurando Axios
+
+- Requisições HTTP assíncronas, acesos a APIs - não é dependência de desenvolvimento
+
+```
+yarn add axios
+```
+
+- Todas as funções do axios retornam Promises
+
+- Com Promises tinha um bloco "then" pra resposta e um bloco "catch" para os erros; com o axios é lançado um erro (Uncaught), pois não há esses blocos... Deve-se usar um bloco try-catch encapsulando a chamada do axios
+
+## Aplicação com ES6+
+
+- estilos + classe principal "App" para controlar toda a aplicação
+
+- array -> map() vs forEach()
+> o map modifica o array, retorna algo, o forEach não modifica, apenas percorre
+
+- Sempre que for importar um arquivo local (que não é de terceiros) sempre especifiar com caminho relativo (usando './', por exemplo), caso contrário a importação será procurada na pasta node_modules ( fonte das dependências terceiras) - reescrever essa anotação, ficou confusa
+
+# NodeJS
+
+## API e NodeJS
+
+- Criação de APIs REST usando NodeJS
+
+- Aplicações Full MVC -> front junto com o back
+
+- Aplicações REST -> front separado do back
+>Mais flexibilidade no front-end
