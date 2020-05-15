@@ -491,3 +491,40 @@ yarn add axios
 
 - Aplicações REST -> front separado do back
 >Mais flexibilidade no front-end
+
+## Criando estrutura
+
+- Iniciar um projeto Node
+```
+npm init -y
+```
+> cria um package.json; esse arquivo, entre outras coisas, armazena as dependências do projeto
+
+- express - micro-framework que lida com rotas e views
+>rotas: endereços de url que o usuário pode acessar 
+
+- package-lock.json -> cache de dependências
+
+- arquivo principal: server.js ou index.js
+
+- Servir o arquivo: node server.js
+
+## Criando primeira rota
+
+- req e res
+>req: requisição que está sendo feita ao servidor: parâmetros, corpo, usuário, autenticação, etc.
+
+## Utilizando o Nodemon
+
+```
+npm install -D nodemon
+```
+
+- Executando scrips do package.json: npm run 'nome_script'
+
+
+## Instalando o MongoDB
+
+- Instalação via Docker - containerização de recursos
+> Fazer as instações em máquinas virtuais (docker) para ter reusabilidade e controle e limpeza; -> instalar Docker Community Edition (CE)
+>Instalar com máquina virtual linux, e hyperV
