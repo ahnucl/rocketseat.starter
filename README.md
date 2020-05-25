@@ -529,6 +529,44 @@ npm install -D nodemon
 > Fazer as instações em máquinas virtuais (docker) para ter reusabilidade e controle e limpeza; -> instalar Docker Community Edition (CE)
 >Instalar com máquina virtual linux, e hyperV
 
+- Baixar a MV do MongoDB (container do mongo)
+```
+    docker pull mongo
+```
+> Precisei iniciar o docker pelo Docker Desktop antes de usar a linha do comando
 
+- Comandos Docker:
+```
+    docker run --name (nome do container) -p (porta_local : porta_VM) -d (imagem)
+    // comando real:
+    docker run --name mongodb -p 27017:27017 -d mongo
 
+    docker ps -> lista quais imagens estão rodando
+```
+> -p: redirecionamento de porta
+> -d: qual imagem quero subir
 
+- Software: robo3t -> gerenciamento do mongoDB, inclusive dentro da VM
+
+- Visualizar imagens que estão pausadas: "docker ps -a"
+
+- Rodar imagens que já foram "criadas" (?): docker start (nome)
+
+## Conectando Database
+
+- npm install moongose
+> ORM para bancos não relacionais como o MongoDB; encapsula lógica de operações com banco de dados para código
+
+## Criando Model de produto
+
+* TODO: Revisar essa parte!:
+- mongoose.model('Product', ProductSchema);
+> registra o model; indica para a aplicação que esse model existe
+
+- biblioteca "require-dir"; subistitui o:
+```
+    require './modelDir/model';
+    // por
+    requireDir './modelDir'; // -> deixando disponível todos os models
+```
+ 
