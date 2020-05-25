@@ -528,3 +528,7 @@ npm install -D nodemon
 - Instalação via Docker - containerização de recursos
 > Fazer as instações em máquinas virtuais (docker) para ter reusabilidade e controle e limpeza; -> instalar Docker Community Edition (CE)
 >Instalar com máquina virtual linux, e hyperV
+
+
+
+
