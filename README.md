@@ -559,14 +559,70 @@ npm install -D nodemon
 
 ## Criando Model de produto
 
+- Model: Representa uma entidade (tabela, estrutura de dados) do banco de dados (MVC)
+
+- Schema: descrição de campos e tipos da entidade (model)
+
 * TODO: Revisar essa parte!:
 - mongoose.model('Product', ProductSchema);
 > registra o model; indica para a aplicação que esse model existe
 
-- biblioteca "require-dir"; subistitui o:
+- biblioteca "require-dir" (centraliza os require dos models); subistitui o:
 ```
     require './modelDir/model';
     // por
     requireDir './modelDir'; // -> deixando disponível todos os models
 ```
  
+## Reestruturação de arquivos
+
+- express().use() -> recebe todo tipo de requisição (get, post, etc)
+```
+    app.use('/api', require('./src/routes')); 
+    // roteia toda requisição que chegar no recurso /api para o arquivo src/routes.js
+```
+
+- Separar rotas para aum arquivo diferente
+
+- Separar lógica da rota em controllers (MVC)
+
+> O require/module.exports é sintaxe NodeJS, o import/export é EC6 (aparentemente mais moderno...)
+
+## Utilizando o Insonmia
+
+- Possível criar no ambiente (environment) um objeto com configurações, com por exemplo "base_url", para encurtar os endereços de teste
+
+- usar ```app.use(express.json());``` após ```const app = express();``` para permitir à aplicação receber dados em formato JSON (enviar dados para a aplicação)
+
+## CRUD
+
+- Model.findByIdAndUpdate(req.params.id, req.body, { new: true });
+> o objeto com new = true indica à função findByIdAndUpdate para retornar o objeto já atualizado. Sem esse parâmetro ela retorna o objeto antes do update.
+
+## Paginação da lista
+
+- instalar pacote mongoose-paginate
+
+## CORS
+
+- Cross Access Origin Security: previne acessos de domínios diferentes
+
+- CORS é muito mais complexo, mas para uso na aplicação basta instalar "cors" (npm install cors) e usar após a declaração do app: ```app.use(cors());```
+
+# ReactJS
+
+## Criando projeto
+
+- Instalar globalmente o create-react-app: ```npm install --global (ou -g) create-react-app``` 
+> Já vem com parte de transpilação configurada (babel, webpack, etc); chamar com ```create-react-app (nome)```
+
+## Criando projeto
+
+- PWA (progressive web app) a partir do manifest.json
+
+- O README.md presente no diretório criado é o do create-react-app
+
+- Iniciar: ```npm run start``` ou ```npm start```
+
+## O que são componentes?
+
