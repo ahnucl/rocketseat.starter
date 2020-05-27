@@ -681,3 +681,11 @@ npm install -D nodemon
 
 # React Native
 
+## O que é o React Native
+
+- O React Native **NÃO** converte Javascript para código nativo; ele torna possível que o dispositivo entenda Javascript através de uma dependência chamada *"react core"*;
+
+- Continua utilizando React por trás;
+
+- As tags são diferentes do HTML comum (lembram o xml do Java mobile);
+
