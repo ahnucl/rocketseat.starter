@@ -1,3 +1,5 @@
+
+TODO: Organizar o documento com índice e tecnologias
 # Curso Javascript
 
 ## Introdução Javascript
