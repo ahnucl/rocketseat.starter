@@ -626,3 +626,58 @@ npm install -D nodemon
 
 ## O que são componentes?
 
+- index.js -> primeiro arquivo aberto pela aplicação React; chama o método ```ReactDOM.render```
+
+- Componente é um conjunto de parte visual/estrutural (html em JSX), parte funcional (JavaScript) e parte de estilização (CSS)
+> Pode ser uma função (stateless component) que retorna JSX ou uma classe (stateful component) que estende React.Component e implementa um método render() que retorna JSX
+
+## Criando Header
+
+- Criar componentes como "pastas" com um arquivo index.js dentro, ao invés de um arquivo com o nome do componente.
+
+- Usando React, tudo passa pelo javacript; os estilos são importados via javascript, e não no html
+
+## Buscando produtos da API
+
+- Axios: biblioteca para consumir APIs; ```yarn add axios```
+
+- Pasta "services": Armazenar arquivos para conexão com serviços externos
+
+- Métodos de ciclo de vida do componente (FreeCodeCamp fala disso também)
+
+- Para referenciar o "this" dentro de uma função de componente (classe) deve-se usar funções anônimas ou fazer o bind no construtor da classe
+> Utilizando o modelo de arrow function evita usar o bind
+> Probelas com o escopo do "this" -> arrow function não o sobescreve, 
+> funções nomeadas precisam do "bind" (conforme freeCodeCamp)
+> As funções de ciclo de vida do componente não têm esse problema
+
+## Armazenando no estado
+
+- O React trabalha com o conceito de "estado"
+
+- existem linsteners para o estado do componente; o método **render** fica escutando tais alterações
+
+## Listando produtos | Página anterior/próxima
+
+- Basicamente código
+
+## Configurando navegação
+
+- lib: react-router-dom; ```yarn add react-router-dom```
+
+- BroserRouter - utilizando rotas atravez de um browser
+
+- Switch permite que apenas uma rota seja chamada por vez
+
+- As rotas dentro do switch são procuradas em sequência de cima para baixo, e por padrão não existe um match "exato"; para usar a propriedade "exact" ```<Route exact path="/" component={Main} />```
+
+- Componente Link do react-router-dom: criar links entre rotas; substituir o <a> por <Link> e o "href" por "to";
+
+## Navegando por detalhe
+
+- Como o props foi passado pro Product?
+
+- Princípios básicos do React: componentização, roteamento (react-router-dom), ciclos de vida do componente, utilização de api, utilização do estado, utilização de propriedades, estilização
+
+# React Native
+
