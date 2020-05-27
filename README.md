@@ -691,3 +691,43 @@ npm install -D nodemon
 
 - As tags são diferentes do HTML comum (lembram o xml do Java mobile);
 
+## Criando projeto
+
+- Setup do Android Studio e Android SDK pelo tutorial da RocketSeat; vou usar o dispositivo via USB;
+
+- Instalando o react-native-cli: ```yarn global add react-native-cli```;
+
+- Iniciando um projeto: ```react-native init <nome>```;
+>Run instructions for iOS:
+>    • cd "C:\projetos-git\rocketseat.starter\curso-react-native\hunt" && npx react-native run-ios
+>    - or -
+>    • Open hunt\ios\hunt.xcodeproj in Xcode or run "xed -b ios"
+>    • Hit the Run button
+>  Run instructions for Android:
+>    • Have an Android emulator running (quickest way to get started), or a device connected.
+>    • cd "C:\projetos-git\rocketseat.starter\curso-react-native\hunt" && npx react-native run-android
+
+- Metro Bundler: semelhante ao webpack no desenvolvimento ReactJS; cria o bundle da aplicação, transpila, agrupa, etc.
+> É a única dependência que precisa ser rodada após instalação do app no dispositivo. Para rodar novamente basta chamar ```react-native start```. Os comandos run-android e run-ios só precisam ser executados novamente caso alguma nova dependência que trabalha com código nativo seja instalada (a execução do mesmo será mais rápida);
+
+- Estrutura de pastas
+-- android: configurações e código nativo da aplicação Android
+-- ios: mesma coisa mas para o ios
+-- node_modules: dependências
+-- Ao invés do ".babelrc" foi gerado um "babel.config.js"
+-- Outros arquivos de configuração: *.buckconfig, .flowconfig, .eslintrc.js, .prettierrc.js, .watchmanconfig*
+-- app.json: descreve como o nome do app é exibido para o usuário final e internamente
+-- index.js: arquivo introdutório, principal, carregado quando a aplicação é montada -> AppRegistry é chamado uma única vez na aplicação e registra um componente para ser o arquivo inicial
+-- yarn.lock ou package.json.lock: arquivos de cache das dependências que são instaladas (depende de qual gerenciador foi usado)
+
+## O que são componentes?
+
+- Conceito parecido (senão equivalente ao do ReactJS); estutura (visual), 
+
+- Usar um componente por arquivo;
+
+- Não se usa classes no React Nativa para fazer estilização
+
+- Estilização: classe StyleSheet do React-Native; a estilização é passada com uma sintaxe que lembra o CSS mas na verdade é um objeto JS;
+
+- Toda estilização do React native é feita com **Flex box** layout; Todo elemento do React Native já tem o estilo ```display: flex```
