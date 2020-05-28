@@ -731,3 +731,111 @@ npm install -D nodemon
 - Estilização: classe StyleSheet do React-Native; a estilização é passada com uma sintaxe que lembra o CSS mas na verdade é um objeto JS;
 
 - Toda estilização do React native é feita com **Flex box** layout; Todo elemento do React Native já tem o estilo ```display: flex```
+
+## Configurando navegação
+
+- Biblioteca React-navigation: ```yarn add react-navigation```;
+
+- Navegação por stack: clique em botões; o blog da rocketseat tem post sobre tipos de navegação, procurar por *"react-navigation"* (exemplos: navegação por abas, por menu lateral, etc);
+
+- Diego faz uma observação sobre a possibilidade de criar componetnes como funções ao invés de classes;
+
+- Tive que instalar o pacote *"react-native-gesture-handler"*;
+
+- Ainda não entendi a diferença entre o "run-android" e o "start": bom lugar para começar? [https://stackoverflow.com/questions/41350660/react-native-run-android-and-react-native-start](https://stackoverflow.com/questions/41350660/react-native-run-android-and-react-native-start)
+
+[https://www.reddit.com/r/reactnative/comments/7tssag/understanding_difference_between_reactnative/](https://www.reddit.com/r/reactnative/comments/7tssag/understanding_difference_between_reactnative/)
+
+- createStackNavigation foi movido para 'react-navigation-stack': [https://reactnavigation.org/docs/stack-navigator/](https://reactnavigation.org/docs/stack-navigator/)
+> Tive que instalar novas dependências (necessárias em negrito): **@react-navigation/stack**,  **react-native-gesture-handler**, react-native-reanimated, **react-native-screens**, **react-native-safe-area-context**, **@react-native-community/masked-view**
+
+- Problemas com o uso por conta de diferença de versão: <s>os vídeos foram gravados com React Navigation 4, e a versão atual é a 5</s>Aparentemente, os vídeos foram gravados com a versão 3 do React Navigation, a propriedade "navigationOptions" é da versão 3, na 4 deve-se usar "defaultNavigationOptions" conforme [https://stackoverflow.com/questions/53553520/react-native-header-styles-in-navigationoptions-not-working](https://stackoverflow.com/questions/53553520/react-native-header-styles-in-navigationoptions-not-working)
+>Para funcionar com a versão 4 do React Navigation, alterar os imports do arquivo de rotas e alterar o export default: 
+```
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
+// export:
+const MyStack = createStackNavigator({
+     Main,
+ });
+export default createAppContainer(MyStack);
+```
+ver: [https://reactnavigation.org/docs/4.x/app-containers/](https://reactnavigation.org/docs/4.x/app-containers/)
+
+## Estilizando Header e StatusBar
+
+- versão da React navigation usada no curso: 3; versão que estou usando 4 (depois de brigar até conseguir rodar com a 5): a estilização do header é diferente entre as versões 3 e 4:
+```
+// versão 3
+export default createStackNavigator({
+     Main
+ }, {
+    navigationOptions: {
+        headerStyle: {
+            backgroundColor: "#DA552F"
+        },
+        headerTintColor: "#FFF"
+    },
+ });
+
+// versão 4
+const MyStack = createStackNavigator({
+     Main
+ }, {
+    defaultNavigationOptions: {
+        headerStyle: {
+            backgroundColor: "#DA552F"
+        },
+        headerTintColor: "#FFF"
+    },
+ });
+
+export default createAppContainer(MyStack);
+
+```
+
+## Bucando produtos da API
+
+- pasta "services": guardar serviços de envio/recebimento de dados;
+
+- usando o "componentDidMount" novamente;
+
+- Para ver o console.log ativar, no dispositivo a opção "debug js remotely"; no meu caso já estava mostrando no console, ao ativar a opção "debug", os logs passam a aparecer no browser (http://localhost:8081/debugger-ui/)
+
+## Entendendo o estado
+
+- O React "monitora" a variável de estado (state, ou this.state)
+
+- Dois métodos para retornar mais JSX dentro de uma função; primeira usando "return" com o corpo da função entre chaves; segunda sem usar o "return" e envolvendo em parênteses o retoro:
+> { return <Text>{javascript}</Text>} ou (<Text>{javascript}</Text>)
+
+## Listando produtos / Estilizando lista de produtos
+
+- Usar componente do React Native: FlatList: lida melhor com performance de listas que "array.map()"
+
+- Botões: usar o Button do React-native que traz estilização nativa ou os Touchables
+
+- Por volta de todo texto do React Native deve haver uma tag <Text/>
+
+- Todo elemento no react native tem display: flex - para alinhar algo ao centro -> justifyConten: 'center' e alignItems: 'center';
+
+## Scroll infinito com FlatList
+
+- Chegar no fim da página chamar a função de carregar e ANEXAR os novos dados ao fim do docs, não substituí-lo;
+
+- prop do FlatList: onEndReachedThreshold={0.1} -> indica em qual porcentagem do fim do FlatList a função em onEndreached deve ser chamada
+
+## Detalhe com WebView
+
+- WebView: renderizar um browser dentro da aplicação; dá experiência de navegador sem sair do app;
+
+- onPress no Touchable: ```onPress={ () => { this.props.navigation.navigate('Product'); }}``` Entender; quando o React Navigation cria a tela, ele passa uma propriedade chamada "navigation" na criação do componente;
+
+- Webview foi retirado do React Native, precisa ser instalado e importado de 'react-native-webview'
+
+# Próximos passos
+
+- Mudar para usar uma base própria ao invés da base da rocketseat;
+
+- Funcionalidade de cadastrar novos repositórios e manter o app sempre à mão
+
